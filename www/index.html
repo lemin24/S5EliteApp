@@ -3,23 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>JARED SMS BOMB</title>
     <style>
-        body { background: #121212; color: #00ff00; font-family: monospace; }
-        .terminal { background: #000; border: 1px solid #333; height: 250px; overflow-y: auto; padding: 10px; font-size: 12px; }
+        body { background: #000; color: #0f0; font-family: 'Courier New', monospace; padding: 20px; text-align: center; }
+        .header { color: #f00; font-size: 24px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
+        .input-group { margin-bottom: 15px; text-align: left; }
+        label { display: block; margin-bottom: 5px; color: #0f0; font-weight: bold; }
+        input { width: 100%; padding: 12px; background: #111; border: 1px solid #444; color: #0f0; box-sizing: border-box; }
+        input::placeholder { color: #444; }
+        button { width: 100%; padding: 15px; background: #f00; color: #fff; border: none; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .footer { margin-top: 30px; border-top: 1px solid #333; padding-top: 10px; font-size: 12px; }
+        a { color: #0ff; text-decoration: none; font-weight: bold; }
     </style>
 </head>
-<body class="p-3">
-    <h3 class="text-danger text-center">JXN STRESSLAB v3.5 APK</h3>
-    <div class="mb-3">
-        <label>Target Number:</label>
-        <input type="text" id="target" class="form-control bg-dark text-success border-secondary" value="9943426682">
-    </div>
-    <button onclick="start()" class="btn btn-outline-danger w-100 mb-3">LAUNCH FLOOD</button>
+<body>
+    <div class="header">JARED SMS BOMB v1.0</div>
     
-    <div class="terminal" id="logs">READY TO ATTACK...</div>
+    <div class="input-group">
+        <label>TARGET NUMBER:</label>
+        <input type="text" id="num" placeholder="9xxxxxxxxx" maxlength="10">
+    </div>
+    
+    <div class="input-group">
+        <label>OTP AMOUNT:</label>
+        <input type="number" id="otpAmount" placeholder="Example: 50" value="10">
+    </div>
+    
+    <button onclick="checkAccess()">START BOMBING</button>
+    
+    <div class="footer">
+        <p>UNAUTHORIZED LOGIN? GET YOUR ACCESS KEY:</p>
+        <a href="https://www.facebook.com/jaredvxx" target="_blank">CONTACT ADMIN ON FACEBOOK</a>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="bomb-enc.js"></script>
+    <script src="js/bomb-enc.js"></script>
 </body>
 </html>

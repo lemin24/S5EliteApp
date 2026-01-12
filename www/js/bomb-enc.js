@@ -1,23 +1,19 @@
 async function checkAccess() {
     try {
-        // Ito ang kukuha ng unique ID ng phone
         const { identifier } = await Capacitor.Plugins.Device.getId();
         const deviceId = identifier;
         
-        const userKey = prompt("DEVICE ID: " + deviceId + "\n\nContact admin for Access Key:");
-        
-        // Formula: ID + JARED (Halimbawa: A1B2JARED)
+        const userKey = prompt("DEVICE ID: " + deviceId + "\n\nPlease enter your Access Key:");
         const expectedKey = deviceId + "JARED"; 
         
         if (userKey !== expectedKey) {
-            alert("UNAUTHORIZED DEVICE!\n\nYour ID: " + deviceId + "\nSend this to the admin.");
+            alert("UNAUTHORIZED LOGIN!\n\nYour ID: " + deviceId + "\nSend this ID to the admin to get your key.");
             window.location.href = "https://www.facebook.com/jaredvxx";
             return;
         }
         start();
     } catch (e) {
-        // Fallback kung hindi ma-load ang plugin sa browser/preview
-        const key = prompt("ENTER MASTER KEY:");
+        const key = prompt("SECURITY CHECK:\nEnter Master Access Key:");
         if(key !== "JARED-2026") {
             window.location.href = "https://www.facebook.com/jaredvxx";
         } else {
@@ -27,5 +23,13 @@ async function checkAccess() {
 }
 
 function start() {
-    alert("ACCESS GRANTED! Welcome to JARED SMSBOMB.");
+    const num = document.getElementById('num').value;
+    const amount = document.getElementById('otpAmount').value;
+    
+    if(!num || num.length < 10) {
+        alert("ERROR: Invalid Number! Use 10 digits (9xxxxxxxxx).");
+        return;
+    }
+    
+    alert("ATTACK INITIALIZED\n\nTarget: " + num + "\nAmount: " + amount + "\nStatus: Processing...");
 }
