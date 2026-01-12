@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">S5 Elite Bomb</string>
-    <string name="title_activity_main">S5 Elite Bomb</string>
+    <string name="app_name">JARED SMSBOMB</string>
+    <string name="title_activity_main">JARED SMSBOMB</string>
     <string name="package_name">com.jared.s5bomb</string>
     <string name="custom_url_scheme">com.jared.s5bomb</string>
 </resources>
