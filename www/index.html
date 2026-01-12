@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';">
     <title>JARED SMS BOMB</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
@@ -13,8 +14,6 @@
         input { width: 100%; padding: 12px; background: #111; border: 1px solid #333; color: #fff; margin-bottom: 15px; border-radius: 8px; box-sizing: border-box; }
         button { width: 100%; padding: 15px; background: #fff; color: #000; border: none; font-weight: bold; border-radius: 8px; text-transform: uppercase; cursor: pointer; }
         #log { margin-top: 20px; height: 180px; background: #050505; border: 1px solid #222; overflow-y: auto; text-align: left; padding: 10px; font-family: monospace; font-size: 11px; color: #0f0; border-radius: 8px; }
-        .footer { margin-top: 30px; font-size: 11px; color: #666; }
-        a { color: #87CEEB; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -26,7 +25,6 @@
         <input type="number" id="otpAmount" placeholder="Enter quantity" value="10">
         <button onclick="start()">Launch Attack</button>
         <div id="log">SYSTEM STATUS: READY...</div>
-        <div class="footer">CONTACT DEVELOPER: <a href="https://www.facebook.com/jaredvxx">JARED</a></div>
     </div>
     <script src="js/bomb-enc.js"></script>
 </body>
