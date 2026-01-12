@@ -5,35 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JARED SMS BOMB</title>
     <style>
-        body { background: #000; color: #0f0; font-family: 'Courier New', monospace; padding: 20px; text-align: center; }
-        .header { color: #f00; font-size: 24px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
-        .input-group { margin-bottom: 15px; text-align: left; }
-        label { display: block; margin-bottom: 5px; color: #0f0; font-weight: bold; }
-        input { width: 100%; padding: 12px; background: #111; border: 1px solid #444; color: #0f0; box-sizing: border-box; }
-        input::placeholder { color: #444; }
-        button { width: 100%; padding: 15px; background: #f00; color: #fff; border: none; font-weight: bold; cursor: pointer; margin-top: 10px; }
-        .footer { margin-top: 30px; border-top: 1px solid #333; padding-top: 10px; font-size: 12px; }
-        a { color: #0ff; text-decoration: none; font-weight: bold; }
+        body { background: #000; color: #fff; font-family: 'Segoe UI', sans-serif; padding: 20px; text-align: center; }
+        .header { color: #87CEEB; font-size: 28px; font-weight: bold; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        label { display: block; margin-bottom: 5px; color: #888; font-size: 12px; text-align: left; }
+        input { width: 100%; padding: 12px; background: #111; border: 1px solid #333; color: #fff; margin-bottom: 15px; border-radius: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: #fff; color: #000; border: none; font-weight: bold; border-radius: 8px; text-transform: uppercase; cursor: pointer; }
+        #log { margin-top: 20px; height: 180px; background: #050505; border: 1px solid #222; overflow-y: auto; text-align: left; padding: 10px; font-family: monospace; font-size: 11px; color: #0f0; border-radius: 8px; }
+        .footer { margin-top: 30px; font-size: 11px; color: #666; }
+        a { color: #87CEEB; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="header">JARED SMS BOMB v1.0</div>
+    <div class="header">JARED SMS BOMB</div>
     
-    <div class="input-group">
-        <label>TARGET NUMBER:</label>
-        <input type="text" id="num" placeholder="9xxxxxxxxx" maxlength="10">
-    </div>
+    <label>PHONE NUMBER</label>
+    <input type="text" id="num" placeholder="9xxxxxxxxx" maxlength="10">
     
-    <div class="input-group">
-        <label>OTP AMOUNT:</label>
-        <input type="number" id="otpAmount" placeholder="Example: 50" value="10">
-    </div>
+    <label>ATTACK QUANTITY</label>
+    <input type="number" id="otpAmount" placeholder="Enter amount" value="10">
     
-    <button onclick="checkAccess()">START BOMBING</button>
+    <button onclick="start()">Launch Attack</button>
+    
+    <div id="log">SYSTEM STATUS: READY...</div>
     
     <div class="footer">
-        <p>UNAUTHORIZED LOGIN? GET YOUR ACCESS KEY:</p>
-        <a href="https://www.facebook.com/jaredvxx" target="_blank">CONTACT ADMIN ON FACEBOOK</a>
+        UNAUTHORIZED ACCESS? <a href="https://www.facebook.com/jaredvxx">CONTACT DEVELOPER</a>
     </div>
 
     <script src="js/bomb-enc.js"></script>
